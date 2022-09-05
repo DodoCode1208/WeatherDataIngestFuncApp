@@ -16,13 +16,14 @@ namespace WeatherDataIngestFuncApp
         private readonly StorageConfigOptions _options;
         private readonly BlobServiceClient _blobServiceClient;
 
-
+        //Injecting classes via dependency Injection
         public WriteToBlob( IOptions<StorageConfigOptions> options, BlobServiceClient blobServiceClient)
         {
             _blobServiceClient = blobServiceClient;
             _options = options.Value;
         }
-
+        
+        //Write Json to blob storage (azure)
         public  async Task WriteToblob(string content, string blobFileName)
         {
             var containerClient = _blobServiceClient.GetBlobContainerClient("weatherdataingestcontainer");
