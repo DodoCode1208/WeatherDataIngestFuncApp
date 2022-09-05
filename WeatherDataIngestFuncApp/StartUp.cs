@@ -27,7 +27,7 @@ namespace WeatherDataIngestFuncApp
                 c.UseCredential(new DefaultAzureCredential());
             });
 
-            builder.Services.AddSingleton<IWriteToBlob, WriteToBlob>();
+            builder.Services.AddScoped<IWriteToBlob, WriteToBlob>();
 
             builder.Services.AddOptions<StorageConfigOptions>().Configure<IConfiguration>((settings, configuration) =>
             {

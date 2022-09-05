@@ -23,18 +23,19 @@ namespace WeatherDataTransformFuncApp
         JsonSerializerOptions options;
 
         [FunctionName("WeatherDataTransformFunc")]
-        public void Run([BlobTrigger("weatherdataingestcontainer/{name}", Connection = "AzureWebJobsStorage")]Stream myBlob,
+        public async Task Run([BlobTrigger("weatherdataingestcontainer/{name}", Connection = "AzureWebJobsStorage")]Stream myBlob,
             string name, ILogger log, [Blob("weatherdataosloloc/{name}", FileAccess.Write,Connection = "AzureWebJobsStorage")]Stream transformBlob)
         {
-            log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+            log.LogInformation($"WeatherDataTransformFunc function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 
             using (StreamReader sr = new StreamReader(myBlob))
             {
-                string jsonContent = sr.ReadToEnd();
+                string jsonContent = await sr.ReadToEndAsync();
             }
 
-            // Create a JsonNode DOM from a JSON string.
-            //Parse Jsonstring - To mutable DOM and make changes to the DOM elements (Input - data coming from weatherdataingestcontainer/{blobname})
+            /*Create a JsonNode DOM from a JSON string. Parse Jsonstring - To mutable DOM and 
+             make changes to the DOM elements (Input - data coming from weatherdataingestcontainer/{blobname})*/
+        
             JsonNode weatherNode = JsonNode.Parse(jsonContent.ToString()!);
             Console.WriteLine(weatherNode!.ToJsonString(options));
 
@@ -50,7 +51,7 @@ namespace WeatherDataTransformFuncApp
 
             using (StreamWriter writer = new StreamWriter(transformBlob))
             {
-                writer.Write(updatedRootNode.ToJsonString(options));  
+                await writer.WriteAsync(updatedRootNode.ToJsonString(options));  
             }
         }
 
