@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherDataIngestFuncApp", "WeatherDataIngestFuncApp\WeatherDataIngestFuncApp.csproj", "{6E64B3C8-BC9E-4CD3-ABEB-D1811702B99E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherDataTransformFuncApp", "WeatherDataTransformFuncApp\WeatherDataTransformFuncApp.csproj", "{DE87FCAE-60AF-4353-81E5-DFFB942F04A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E64B3C8-BC9E-4CD3-ABEB-D1811702B99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E64B3C8-BC9E-4CD3-ABEB-D1811702B99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E64B3C8-BC9E-4CD3-ABEB-D1811702B99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E64B3C8-BC9E-4CD3-ABEB-D1811702B99E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE87FCAE-60AF-4353-81E5-DFFB942F04A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE87FCAE-60AF-4353-81E5-DFFB942F04A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE87FCAE-60AF-4353-81E5-DFFB942F04A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE87FCAE-60AF-4353-81E5-DFFB942F04A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69F8508A-2633-46A8-9797-7FF9428BAAE4}
+	EndGlobalSection
+EndGlobal
